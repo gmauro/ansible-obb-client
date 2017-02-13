@@ -27,7 +27,7 @@
 
 - name: chown dir
   file: path="{{ OMEROBIOBANKDIR }}"
-        owner="{{ USER }}"
+        owner="{{ OBBUSER }}"
 
 
 

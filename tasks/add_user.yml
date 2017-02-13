@@ -1,2 +1,5 @@
 - name: create user
-  user: name={{ USER }} password={{ PASSWORD }} update_password=always shell=/bin/bash home=/home/{{ USER }}
+  user: name={{ OBBUSER }} \
+        password={{ OBBPASSWORD }} \
+        update_password=always \
+        shell=/bin/bash home=/home/{{ OBBUSER }}

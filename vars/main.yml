@@ -1,19 +1,19 @@
 install_packages: yes
-add_user: no
+add_user: yes
 install_obb: yes
 config_supervisor: yes
 
 packages_state: present
 
-USER: omero
-USERHOME: /home/{{ USER }}
-PASSWORD: romeo
+OBBUSER: omero
+OBBUSERHOME: /home/{{ OBBUSER }}
+OBBPASSWORD: romeo
 
 OMEROHOST: "{{ lookup('env', 'OMEROHOST') | default('obb_server',boolean=True) }}"
 OMEROUSER: "{{ lookup('env', 'OMEROUSER') | default('omero',boolean=True) }}"
 OMEROPASSWORD: romeo
 OMEROPYTHONLIBDIR: /opt/omero/lib/python/
 
-OMEROBIOBANKDIR: "{{ USERHOME }}/omero.biobank"
+OMEROBIOBANKDIR: "{{ OBBUSERHOME }}/omero.biobank"
 OMEROBIOBANKVERSION: develop
 OMEROBIOBANK_VENV: .venv
