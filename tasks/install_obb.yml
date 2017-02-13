@@ -17,7 +17,7 @@
     chdir: "{{ OMEROBIOBANKDIR }}"
 
 - name: install python library dependencies
-  pip: name={{ item }} virtualenv={{ OMEROBIOBANKDIR }}}/{{ OMEROBIOBANK_VENV }}
+  pip: name={{ item }} virtualenv={{ OMEROBIOBANKDIR }}/{{ OMEROBIOBANK_VENV }}
   with_items:
     - numpy
     - pika
