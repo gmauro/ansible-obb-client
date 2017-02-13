@@ -10,7 +10,7 @@ OBBUSERHOME: /home/{{ OBBUSER }}
 OBBPASSWORD: romeo
 
 OMEROHOST: "{{ lookup('env', 'OMEROHOST') | default('obb_server',boolean=True) }}"
-OMEROUSER: "{{ lookup('env', 'OMEROUSER') | default('omero',boolean=True) }}"
+OMEROUSER: "{{ lookup('env', 'OMEROUSER') | default('root',boolean=True) }}"
 OMEROPASSWORD: romeo
 OMEROPYTHONLIBDIR: /opt/omero/lib
 

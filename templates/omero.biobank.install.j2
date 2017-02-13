@@ -4,4 +4,4 @@ cd {{ OMEROBIOBANKDIR }}
 source {{ OMEROBIOBANK_VENV }}/bin/activate
 export PYTHONPATH={{ OMEROPYTHONLIBDIR }}:{{ ICEPYTHONLIBDIR }}:$PYTHONPATH
 python setup.py install
-python build_configuration.py -H {{ OMEROHOST }} -U {{ OMEROUSER }} -P {{ OMEROPASSWORD }} --python
+python build_configuration.py -H {{ OMEROHOST }} -U {{ OMEROUSER }} -P {{ OMEROPASSWORD }} --profile
