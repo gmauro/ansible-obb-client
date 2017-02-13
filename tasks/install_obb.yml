@@ -5,7 +5,7 @@
 
 - name: copy omero.biobank scripts
   template: src={{ item.src }} \
-            dest={{ OMEROBIOBANKDIR }}/{{ item.dst }}
+            dest={{ OMEROBIOBANKDIR }}/{{ item.dst }} \
             mode=0755
   with_items:
      - { src: 'omero.biobank.install.j2', dst: 'omero.biobank.install.sh' }
@@ -26,8 +26,9 @@
     - voluptuous
 
 - name: chown dir
-  file: path="{{ OMEROBIOBANKDIR }}"
-        owner="{{ OBBUSER }}"
+  file: path="{{ OMEROBIOBANKDIR }}" \
+        owner="{{ OBBUSER }}" \
+        group="{{ OBBUSER }}"
 
 
 

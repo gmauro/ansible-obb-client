@@ -12,8 +12,10 @@ OBBPASSWORD: romeo
 OMEROHOST: "{{ lookup('env', 'OMEROHOST') | default('obb_server',boolean=True) }}"
 OMEROUSER: "{{ lookup('env', 'OMEROUSER') | default('omero',boolean=True) }}"
 OMEROPASSWORD: romeo
-OMEROPYTHONLIBDIR: /opt/omero/lib/python/
+OMEROPYTHONLIBDIR: /opt/omero/lib
 
 OMEROBIOBANKDIR: "{{ OBBUSERHOME }}/omero.biobank"
 OMEROBIOBANKVERSION: develop
 OMEROBIOBANK_VENV: .venv
+
+ICEPYTHONLIBDIR: /usr/lib/python2.7/dist-packages
