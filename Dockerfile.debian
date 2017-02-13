@@ -1,0 +1,13 @@
+FROM gmauro/ansible:2.1-debian
+
+WORKDIR /tmp
+
+ADD docker.yml /tmp/local.yml
+ADD vars /tmp/roles/ansible-obb-client/vars
+ADD tasks /tmp/roles/ansible-obb-client/tasks
+ADD templates /tmp/roles/ansible-obb-client/templates
+
+RUN git clone https://github.com/gmauro/ansible-postgresql /tmp/roles/ansible-postgresql\
+ && git clone https://github.com/gmauro/ansible-java /tmp/roles/ansible-java \
+ && git clone https://github.com/gmauro/ansible-ice /tmp/roles/ansible-ice \
+ && ansible-playbook -i localhost, local.yml -e "@roles/ansible-obb-client/vars/main.yml"

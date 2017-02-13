@@ -1,0 +1,34 @@
+- name: clone omero.biobank git repo
+  git: repo=git://github.com/gmauro/omero.biobank \
+       dest={{ OMEROBIOBANKDIR }} \
+       version={{ OMEROBIOBANKVERSION }}
+
+- name: copy omero.biobank scripts
+  template: src={{ item.src }} \
+            dest={{ OMEROBIOBANKDIR }}/{{ item.dst }}
+            mode=0755
+  with_items:
+     - { src: 'omero.biobank.install.j2', dst: 'omero.biobank.install.sh' }
+     - { src: 'omero.biobank.env.j2', dst: 'omero.biobank.env.sh' }
+
+- name: create virtualenv
+  shell: virtualenv {{ OMEROBIOBANK_VENV }}
+  args:
+    chdir: "{{ OMEROBIOBANKDIR }}"
+
+- name: install python library dependencies
+  pip: name={{ item }} virtualenv={{ OMEROBIOBANKDIR }}}/{{ OMEROBIOBANK_VENV }}
+  with_items:
+    - numpy
+    - pika
+    - python-graph-core
+    - bulbs
+    - voluptuous
+
+- name: install omero.biobank
+  shell: "{{ OMEROBIOBANKDIR }}/omero.biobank.install.sh"
+
+- name: chown dir
+  file: src="{{ OMEROBIOBANKDIR }}"
+        owner="{{ USER }}"
+

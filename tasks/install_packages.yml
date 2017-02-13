@@ -1,0 +1,13 @@
+- name: install obb-client required packages
+  apt: name={{ item }} state={{ packages_state }} update_cache=yes
+  with_items:
+    - git
+    - unzip
+    - wget
+    - python-pip
+
+- name: install virtualenv
+  pip: name=virtualenv
+
+
+

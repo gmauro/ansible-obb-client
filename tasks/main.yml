@@ -1,0 +1,13 @@
+- include: install_packages.yml
+  when: install_packages
+
+- include: add_user.yml
+  when: add_user
+
+- include: install_obb.yml
+  when: install_obb
+
+#- include: config_supervisor.yml
+#  when: config_supervisor
+
+- include: cleaning.yml
