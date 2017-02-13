@@ -26,7 +26,7 @@
     - voluptuous
 
 - name: chown dir
-  file: src="{{ OMEROBIOBANKDIR }}"
+  file: path="{{ OMEROBIOBANKDIR }}"
         owner="{{ USER }}"
 
 
