@@ -28,7 +28,9 @@
 - name: chown dir
   file: path="{{ OMEROBIOBANKDIR }}" \
         owner="{{ OBBUSER }}" \
-        group="{{ OBBUSER }}"
+        group="{{ OBBUSER }}" \
+        recurse=yes \
+        state=directory
 
 
 
