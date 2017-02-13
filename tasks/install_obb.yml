@@ -25,10 +25,9 @@
     - bulbs
     - voluptuous
 
-- name: install omero.biobank
-  shell: "{{ OMEROBIOBANKDIR }}/omero.biobank.install.sh"
-
 - name: chown dir
   file: src="{{ OMEROBIOBANKDIR }}"
         owner="{{ USER }}"
+
+
 
