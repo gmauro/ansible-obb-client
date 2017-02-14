@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd {{ OMEROBIOBANKDIR }}
+source {{ OMEROBIOBANK_VENV }}/bin/activate
+export PYTHONPATH={{ OMEROPYTHONLIBDIR }}:{{ ICEPYTHONLIBDIR }}:$PYTHONPATH
+
+DAEMON_DIR={{ OMEROBIOBANKDIR }}/daemons
+DAEMON_LOGS_DIR=$DAEMON_DIR/logs
+DAEMON_PID_FILE=$DAEMON_DIR/graph_manager.pid
+
+nohup python $DAEMON_DIR/graph_manager.py --logfile $LOGS_DIR/graph_manager.log --pid-file $PID_FILE

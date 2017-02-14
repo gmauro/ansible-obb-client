@@ -10,6 +10,7 @@
   with_items:
      - { src: 'omero.biobank.install.j2', dst: 'omero.biobank.install.sh' }
      - { src: 'omero.biobank.env.j2', dst: 'omero.biobank.env.sh' }
+     - { src: 'omero.biobank.daemon.j2', dst: 'omero.biobank.daemon.sh' }
 
 - name: create virtualenv
   shell: virtualenv {{ OMEROBIOBANK_VENV }}
